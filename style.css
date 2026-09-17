@@ -1,87 +1,253 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    margin: 0;
-    background: #090909;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #111111;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    min-height: 100vh;
 }
 
+
 .container {
-    width: min(1000px, 92%);
+    width: min(950px, 92%);
+
     margin: 0 auto;
-    padding: 70px 0;
+
+    padding-top: 75px;
+    padding-bottom: 80px;
+
     text-align: center;
 }
 
+
+/* TITLE */
+
 h1 {
-    font-size: clamp(38px, 7vw, 72px);
-    font-weight: 900;
-    letter-spacing: -2px;
-    margin: 0;
+    font-size: clamp(35px, 6vw, 70px);
+
+    font-weight: 1000;
+
+    letter-spacing: -3px;
+
+    line-height: 0.95;
+
+    margin-bottom: 25px;
 }
 
-.description {
-    color: #a5a5a5;
+
+/* INSTRUCTIONS */
+
+.instructions {
+    max-width: 700px;
+
+    margin: 0 auto;
+
     font-size: 15px;
-    font-weight: bold;
-    margin: 18px 0 35px;
+
+    font-weight: 800;
+
+    line-height: 1.5;
+
+    text-transform: uppercase;
 }
 
-.download-button {
-    display: inline-block;
-    padding: 16px 35px;
-    background: white;
-    color: black;
-    text-decoration: none;
-    font-weight: 900;
-    border-radius: 10px;
-    transition: 0.2s;
+
+.warning {
+    margin-top: 14px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    color: #777777;
+
+    text-transform: uppercase;
 }
 
-.download-button:hover {
-    transform: translateY(-3px);
-    background: #dddddd;
-}
 
-section {
-    margin-top: 65px;
-}
+/* MAIN DOWNLOAD BUTTON */
 
-h2 {
-    font-size: 30px;
-    margin-bottom: 20px;
-}
+.download-main {
+    display: inline-flex;
 
-.versions {
-    display: flex;
-    flex-wrap: wrap;
+    align-items: center;
     justify-content: center;
-    gap: 12px;
-}
 
-.versions a {
-    padding: 13px 20px;
-    border: 1px solid #303030;
-    border-radius: 8px;
-    background: #151515;
+    margin-top: 35px;
+
+    width: 220px;
+    height: 55px;
+
+    background: #111111;
+
     color: white;
+
     text-decoration: none;
+
     font-size: 14px;
-    font-weight: bold;
-    transition: 0.2s;
+
+    font-weight: 900;
+
+    border-radius: 5px;
+
+    transition:
+        transform 0.15s ease,
+        background 0.15s ease;
 }
 
-.versions a:hover {
-    background: #292929;
-    border-color: #555;
+.download-main:hover {
+    background: #333333;
+
     transform: translateY(-2px);
 }
 
+
+/* VERSION SECTIONS */
+
+#versions {
+    margin-top: 70px;
+}
+
+
+.year-section {
+    margin-bottom: 65px;
+}
+
+
+.year-section h2 {
+    font-size: 30px;
+
+    font-weight: 1000;
+
+    margin-bottom: 22px;
+
+    letter-spacing: -1px;
+}
+
+
+/* VERSION BUTTONS */
+
+.version-list {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 10px;
+}
+
+
+.version {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 42px;
+
+    padding: 0 18px;
+
+    border: 2px solid #111111;
+
+    border-radius: 5px;
+
+    background: white;
+
+    color: #111111;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    transition:
+        background 0.15s ease,
+        color 0.15s ease,
+        transform 0.15s ease;
+}
+
+
+.version:hover {
+    background: #111111;
+
+    color: white;
+
+    transform: translateY(-2px);
+}
+
+
+/* FOOTER */
+
 footer {
-    margin-top: 80px;
-    color: #555;
-    font-size: 13px;
+    margin-top: 30px;
+
+    padding-top: 35px;
+
+    border-top: 2px solid #111111;
+}
+
+
+footer p {
+    margin: 6px 0;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    color: #555555;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .container {
+        padding-top: 45px;
+    }
+
+    h1 {
+        font-size: 40px;
+
+        letter-spacing: -2px;
+    }
+
+    .instructions {
+        font-size: 12px;
+    }
+
+    .warning {
+        font-size: 11px;
+    }
+
+    .download-main {
+        width: 100%;
+    }
+
+    .version {
+        width: 100%;
+    }
+
+    .version-list {
+        gap: 8px;
+    }
+
+    .year-section h2 {
+        font-size: 26px;
+    }
 }
