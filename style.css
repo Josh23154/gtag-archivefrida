@@ -1,0 +1,87 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #090909;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    width: min(1000px, 92%);
+    margin: 0 auto;
+    padding: 70px 0;
+    text-align: center;
+}
+
+h1 {
+    font-size: clamp(38px, 7vw, 72px);
+    font-weight: 900;
+    letter-spacing: -2px;
+    margin: 0;
+}
+
+.description {
+    color: #a5a5a5;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 18px 0 35px;
+}
+
+.download-button {
+    display: inline-block;
+    padding: 16px 35px;
+    background: white;
+    color: black;
+    text-decoration: none;
+    font-weight: 900;
+    border-radius: 10px;
+    transition: 0.2s;
+}
+
+.download-button:hover {
+    transform: translateY(-3px);
+    background: #dddddd;
+}
+
+section {
+    margin-top: 65px;
+}
+
+h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.versions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.versions a {
+    padding: 13px 20px;
+    border: 1px solid #303030;
+    border-radius: 8px;
+    background: #151515;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.versions a:hover {
+    background: #292929;
+    border-color: #555;
+    transform: translateY(-2px);
+}
+
+footer {
+    margin-top: 80px;
+    color: #555;
+    font-size: 13px;
+}
