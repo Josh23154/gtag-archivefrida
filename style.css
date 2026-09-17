@@ -9,34 +9,73 @@ html {
 }
 
 body {
-    background: #ffffff;
-    color: #111111;
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 50% -20%,
+            #252525 0%,
+            #111111 35%,
+            #050505 75%,
+            #000000 100%
+        );
+
+    color: #ffffff;
 
     font-family:
         Arial,
         Helvetica,
         sans-serif;
 
-    min-height: 100vh;
+    overflow-x: hidden;
 }
 
+
+/* Subtle background glow */
+
+body::before {
+    content: "";
+
+    position: fixed;
+
+    top: -250px;
+    left: 50%;
+
+    width: 800px;
+    height: 500px;
+
+    transform: translateX(-50%);
+
+    background: radial-gradient(
+        ellipse,
+        rgba(255,255,255,0.08),
+        transparent 70%
+    );
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+/* Main container */
 
 .container {
     width: min(950px, 92%);
 
     margin: 0 auto;
 
-    padding-top: 75px;
-    padding-bottom: 80px;
+    padding-top: 80px;
+    padding-bottom: 90px;
 
     text-align: center;
 }
 
 
-/* TITLE */
+/* Title */
 
 h1 {
-    font-size: clamp(35px, 6vw, 70px);
+    font-size: clamp(38px, 6vw, 72px);
 
     font-weight: 1000;
 
@@ -44,41 +83,50 @@ h1 {
 
     line-height: 0.95;
 
-    margin-bottom: 25px;
+    margin-bottom: 26px;
+
+    color: #ffffff;
+
+    text-shadow:
+        0 0 30px rgba(255,255,255,0.08);
 }
 
 
-/* INSTRUCTIONS */
+/* Instructions */
 
 .instructions {
     max-width: 700px;
 
     margin: 0 auto;
 
-    font-size: 15px;
+    color: #d0d0d0;
+
+    font-size: 14px;
 
     font-weight: 800;
 
-    line-height: 1.5;
+    line-height: 1.6;
 
     text-transform: uppercase;
 }
 
 
+/* Warning */
+
 .warning {
-    margin-top: 14px;
-
-    font-size: 13px;
-
-    font-weight: 700;
+    margin-top: 13px;
 
     color: #777777;
 
+    font-size: 12px;
+
+    font-weight: 700;
+
     text-transform: uppercase;
 }
 
 
-/* MAIN DOWNLOAD BUTTON */
+/* Main download button */
 
 .download-main {
     display: inline-flex;
@@ -86,41 +134,52 @@ h1 {
     align-items: center;
     justify-content: center;
 
+    width: 220px;
+    height: 56px;
+
     margin-top: 35px;
 
-    width: 220px;
-    height: 55px;
+    border: 1px solid #ffffff;
 
-    background: #111111;
+    border-radius: 6px;
 
-    color: white;
+    background: #ffffff;
+
+    color: #000000;
 
     text-decoration: none;
 
-    font-size: 14px;
+    font-size: 13px;
 
-    font-weight: 900;
+    font-weight: 1000;
 
-    border-radius: 5px;
+    box-shadow:
+        0 10px 35px rgba(0,0,0,0.4);
 
     transition:
-        transform 0.15s ease,
-        background 0.15s ease;
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 .download-main:hover {
-    background: #333333;
+    background: #dddddd;
 
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 14px 40px rgba(0,0,0,0.6);
 }
 
 
-/* VERSION SECTIONS */
+/* Version area */
 
 #versions {
-    margin-top: 70px;
+    margin-top: 75px;
 }
 
+
+/* Year */
 
 .year-section {
     margin-bottom: 65px;
@@ -128,17 +187,53 @@ h1 {
 
 
 .year-section h2 {
-    font-size: 30px;
+    display: flex;
 
-    font-weight: 1000;
+    align-items: center;
+
+    gap: 15px;
 
     margin-bottom: 22px;
+
+    color: #ffffff;
+
+    font-size: 28px;
+
+    font-weight: 1000;
 
     letter-spacing: -1px;
 }
 
 
-/* VERSION BUTTONS */
+/* Lines beside years */
+
+.year-section h2::before,
+.year-section h2::after {
+    content: "";
+
+    height: 1px;
+
+    flex: 1;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            #303030
+        );
+}
+
+.year-section h2::after {
+    background:
+        linear-gradient(
+            to left,
+            transparent,
+            #303030
+        );
+}
+
+
+/* Version buttons */
 
 .version-list {
     display: flex;
@@ -152,73 +247,126 @@ h1 {
 
 
 .version {
+    position: relative;
+
     display: inline-flex;
 
     align-items: center;
     justify-content: center;
 
-    min-height: 42px;
+    min-height: 44px;
 
     padding: 0 18px;
 
-    border: 2px solid #111111;
+    border: 1px solid #333333;
 
-    border-radius: 5px;
+    border-radius: 6px;
 
-    background: white;
+    background:
+        linear-gradient(
+            180deg,
+            #191919,
+            #101010
+        );
 
-    color: #111111;
+    color: #eeeeee;
 
     text-decoration: none;
 
-    font-size: 12px;
+    font-size: 11px;
 
     font-weight: 900;
 
+    letter-spacing: 0.3px;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.04),
+        0 5px 20px rgba(0,0,0,0.25);
+
     transition:
-        background 0.15s ease,
-        color 0.15s ease,
-        transform 0.15s ease;
+        transform 0.18s ease,
+        border-color 0.18s ease,
+        background 0.18s ease,
+        color 0.18s ease,
+        box-shadow 0.18s ease;
 }
 
+
+/* Button hover */
 
 .version:hover {
-    background: #111111;
+    transform: translateY(-3px);
 
-    color: white;
+    border-color: #777777;
 
-    transform: translateY(-2px);
+    background:
+        linear-gradient(
+            180deg,
+            #292929,
+            #171717
+        );
+
+    color: #ffffff;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.5),
+        inset 0 1px 0 rgba(255,255,255,0.07);
 }
 
 
-/* FOOTER */
+/* Little shine */
+
+.version::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 15%;
+
+    width: 70%;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.15),
+            transparent
+        );
+}
+
+
+/* Footer */
 
 footer {
-    margin-top: 30px;
+    margin-top: 40px;
 
     padding-top: 35px;
 
-    border-top: 2px solid #111111;
+    border-top: 1px solid #292929;
 }
 
 
 footer p {
-    margin: 6px 0;
+    margin: 7px 0;
 
-    font-size: 11px;
+    color: #555555;
+
+    font-size: 10px;
 
     font-weight: 800;
 
-    color: #555555;
+    letter-spacing: 0.5px;
 }
 
 
-/* MOBILE */
+/* Mobile */
 
 @media (max-width: 600px) {
 
     .container {
-        padding-top: 45px;
+        padding-top: 50px;
     }
 
     h1 {
@@ -228,11 +376,11 @@ footer p {
     }
 
     .instructions {
-        font-size: 12px;
+        font-size: 11px;
     }
 
     .warning {
-        font-size: 11px;
+        font-size: 10px;
     }
 
     .download-main {
@@ -248,6 +396,6 @@ footer p {
     }
 
     .year-section h2 {
-        font-size: 26px;
+        font-size: 25px;
     }
 }
